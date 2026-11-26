@@ -18,8 +18,11 @@ const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&
 const clip = (s, n) => (s.length > n ? s.slice(0, n - 1) + "…" : s);
 const fmt = (v) => (typeof v !== "number" || v < 1000 ? String(v) : (v / 1000).toFixed(v < 10000 ? 1 : 0).replace(/\.0$/, "") + "k");
 const rnd = (i, k) => (((Math.sin(i * 12.9898 + k * 78.233) * 43758.5453) % 1) + 1) % 1; // deterministic, so SVGs only change when data does
-// Fade in after `delay` s; the base opacity stays 1, so viewers without SMIL still see everything.
-const fadeIn = (delay, dur = 0.6) => `<animate attributeName="opacity" values="0;0;1" keyTimes="0;${(delay / (delay + dur)).toFixed(3)};1" dur="${delay + dur}s"/>`;
+// Animate attr from→to after `delay` s. The delay lives in keyTimes (not `begin`), so nothing shows its
+// final state before starting; the base attribute is the final value, so viewers without SMIL still see it.
+const enter = (attr, from, to, delay, dur = 0.6) =>
+  `<animate attributeName="${attr}" values="${from};${from};${to}" keyTimes="0;${(delay / (delay + dur)).toFixed(3)};1" dur="${(delay + dur).toFixed(2)}s"/>`;
+const fadeIn = (delay, dur) => enter("opacity", 0, 1, delay, dur);
 
 export function summarize(user, repos) {
   const own = repos.filter((r) => !r.fork);
@@ -104,7 +107,7 @@ export function stats(d, t) {
   const bar = d.languages
     .map((l, i) => {
       const w = +(l.pct * 540).toFixed(1);
-      const seg = `<rect x="${x}" y="80" width="${w}" height="12" fill="${t.palette[i]}"><animate attributeName="width" values="0;${w}" dur="1s" begin="${(0.2 * i).toFixed(1)}s" fill="freeze"/></rect>`;
+      const seg = `<rect x="${x}" y="80" width="${w}" height="12" fill="${t.palette[i]}">${enter("width", 0, w, 0.2 * i, 1)}</rect>`;
       x += w;
       return seg;
     })
