@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>README Skin Builder</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap">
+<style>
+/* Workbench: a controls rail on the left; the README preview and setup steps on the right; one column on phones. */
+:root {
+  --bg: #f3f5f8; --panel: #ffffff; --ink: #161a20; --muted: #5a6472; --line: #dce1e8;
+  --stage: #e7ebf0; --accent: #b8245e; --accent-ink: #ffffff; --danger: #b3261e;
+  --display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --body: "Inter", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1116; --panel: #161b22; --ink: #e8ecf1; --muted: #9aa4b1; --line: #29313b;
+    --stage: #0a0d11; --accent: #ff6b9e; --accent-ink: #2a0614; --danger: #ff8a80; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1116; --panel: #161b22; --ink: #e8ecf1; --muted: #9aa4b1; --line: #29313b;
+  --stage: #0a0d11; --accent: #ff6b9e; --accent-ink: #2a0614; --danger: #ff8a80; color-scheme: dark;
+}
+* { box-sizing: border-box }
+.wrap, .rail, .stage, .readme, .steps { grid-template-columns: minmax(0, 1fr) } /* keep the 1200px-wide images from widening their column */
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.55 var(--body) }
+.wrap {
+  max-width: 1240px; margin: 0 auto; display: grid; gap: 28px; padding-block: 32px 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.top h1 { font: 700 clamp(28px, 4vw, 40px)/1.1 var(--display); letter-spacing: -0.02em; margin: 0 0 8px; text-wrap: balance }
+.top p { margin: 0; color: var(--muted); max-width: 62ch }
+.bench { display: grid; grid-template-columns: minmax(0, 380px) minmax(0, 1fr); gap: 28px; align-items: start }
+@media (max-width: 880px) { .bench { grid-template-columns: minmax(0, 1fr) } }
+.rail { display: grid; gap: 24px; padding: 20px; background: var(--panel); border: 1px solid var(--line); border-radius: 14px }
+.label, legend { display: block; padding: 0; margin-bottom: 10px; font: 600 12px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted) }
+fieldset { border: 0; margin: 0; padding: 0; min-width: 0 }
+.row { display: flex; gap: 8px }
+#user { flex: 1; min-width: 0; padding: 10px 12px; font: 15px var(--mono); color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 8px }
+#user:focus-visible, button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+button { padding: 10px 16px; font: 600 14px var(--body); color: var(--accent-ink); background: var(--accent); border: 1px solid var(--accent); border-radius: 8px; cursor: pointer }
+button:disabled { opacity: .6; cursor: progress }
+.status { margin: 8px 0 0; min-height: 1.55em; font-size: 13px; color: var(--muted) }
+.status.error { color: var(--danger) }
+.templates, .themes { display: grid; grid-template-columns: 1fr 1fr; gap: 10px }
+.opt { position: relative; display: grid; gap: 4px; padding: 8px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; cursor: pointer }
+.opt input { position: absolute; opacity: 0; pointer-events: none }
+.opt:hover { border-color: var(--muted) }
+.opt:has(input:checked) { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) }
+.opt:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px }
+.opt img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 1; border-radius: 5px; background: var(--stage) }
+.opt-name { font-weight: 600 }
+.opt-about { font-size: 12px; line-height: 1.35; color: var(--muted) }
+.theme-opt { grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 10px }
+.swatch { display: flex; gap: 3px; padding: 5px; border: 1px solid var(--line); border-radius: 6px }
+.swatch i { width: 9px; height: 9px; border-radius: 50% }
+.stage { display: grid; gap: 32px; min-width: 0 }
+h2 { margin: 0 0 12px; font: 700 20px/1.2 var(--display) }
+.readme { display: grid; gap: 14px; padding: clamp(12px, 3vw, 28px); background: var(--stage); border: 1px solid var(--line); border-radius: 14px }
+.readme img { display: block; width: 100%; height: auto }
+.steps { display: grid; gap: 14px; max-width: 70ch; margin: 0; padding-left: 1.5em }
+.steps li::marker { font: 600 14px var(--mono); color: var(--accent) }
+code, pre { font-family: var(--mono); font-size: 13px }
+code { padding: 1px 5px; background: var(--stage); border-radius: 4px }
+.code { display: flex; align-items: center; gap: 10px; margin-top: 8px; padding: 8px 8px 8px 14px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px }
+.code pre { flex: 1; min-width: 0; margin: 0; overflow-x: auto }
+a { color: var(--accent) }
+</style>
+
+<main class="wrap">
+  <header class="top">
+    <h1>README Skin Builder</h1>
+    <p>Pick a template and a theme for your GitHub profile README. The preview draws the same animated images the skin Action puts on your profile, from public GitHub data.</p>
+  </header>
+
+  <div class="bench">
+    <div class="rail">
+      <form id="lookup">
+        <label class="label" for="user">GitHub username</label>
+        <div class="row">
+          <input id="user" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="40" placeholder="your-username">
+          <button id="load" type="submit">Load</button>
+        </div>
+        <p id="status" class="status" role="status"></p>
+      </form>
+      <fieldset><legend>Template</legend><div id="templates" class="templates"></div></fieldset>
+      <fieldset><legend>Theme</legend><div id="themes" class="themes"></div></fieldset>
+    </div>
+
+    <div class="stage">
+      <section aria-labelledby="preview-title">
+        <h2 id="preview-title">Preview</h2>
+        <div class="readme">
+          <img id="p-header" alt="Profile header preview" width="1200" height="300">
+          <img id="p-stats" alt="Stats card preview" width="1200" height="220">
+        </div>
+      </section>
+
+      <section aria-labelledby="use-title">
+        <h2 id="use-title">Put it on your profile</h2>
+        <ol class="steps">
+          <li>Create a public repository named exactly like your GitHub username. GitHub shows its README on your profile page.</li>
+          <li>Copy <code>README.md</code>, the <code>skin</code> folder and the <code>.github</code> folder from <a href="https://github.com/DakaGoa/Test" target="_blank" rel="noopener">DakaGoa/Test</a> into it.</li>
+          <li>Replace everything in <code>skin/config.json</code> with this line<span id="edit-wrap" hidden>, or <a id="edit-link" target="_blank" rel="noopener">edit the file on GitHub</a></span>:
+            <div class="code"><pre id="settings"></pre><button id="copy" type="button">Copy</button></div>
+          </li>
+          <li>The skin Action redraws your images whenever that file changes, and once a day after that. To run it right away, open Actions → skin → Run workflow.</li>
+        </ol>
+      </section>
+    </div>
+  </div>
+</main>
+
+<script type="module">
+import { THEMES, TEMPLATES, loadProfile, render } from "./skin/render.mjs";
+
+const $ = (s) => document.querySelector(s);
+// Shown until real data loads; the status line says it is a sample.
+const SAMPLE = {
+  login: "your-username", name: "Your Name", bio: "Short line about what you build", location: "Your city",
+  stats: [["Repos", 24], ["Stars", 310], ["Followers", 128], ["Joined", "2018"]],
+  languages: [{ name: "TypeScript", pct: 0.4 }, { name: "Python", pct: 0.25 }, { name: "Go", pct: 0.15 }, { name: "Shell", pct: 0.1 }],
+};
+const state = { profile: SAMPLE, template: "classic", theme: "github-dark" };
+let urls = [];
+
+const el = (tag, className = "", text = "") => Object.assign(document.createElement(tag), { className, textContent: text });
+const svgUrl = (svg) => { const u = URL.createObjectURL(new Blob([svg], { type: "image/svg+xml" })); urls.push(u); return u; };
+const status = (text, isError = false) => { $("#status").textContent = text; $("#status").classList.toggle("error", isError); };
+
+function draw() {
+  for (const u of urls) URL.revokeObjectURL(u);
+  urls = [];
+  const files = render(state.profile, state.template, state.theme);
+  $("#p-header").src = svgUrl(files["header.svg"]);
+  $("#p-stats").src = svgUrl(files["stats.svg"]);
+  for (const img of document.querySelectorAll("img[data-template]"))
+    img.src = svgUrl(TEMPLATES[img.dataset.template].header(state.profile, THEMES[state.theme]));
+  $("#settings").textContent = `{ "template": "${state.template}", "theme": "${state.theme}" }`;
+  const login = encodeURIComponent(state.profile.login);
+  $("#edit-link").href = `https://github.com/${login}/${login}/edit/main/skin/config.json`;
+  $("#edit-wrap").hidden = state.profile === SAMPLE;
+}
+
+function addOptions(container, name, entries, build) {
+  for (const [value, item] of entries) {
+    const label = el("label", `opt ${name}-opt`);
+    const input = Object.assign(document.createElement("input"), { type: "radio", name, value, id: `${name}-${value}`, checked: value === state[name] });
+    input.addEventListener("change", () => { state[name] = value; draw(); });
+    label.append(input, ...build(value, item));
+    container.append(label);
+  }
+}
+
+// Start from this repo's current look and latest data when they are published next to the page.
+const local = async (path) => { try { const r = await fetch(path); return r.ok ? await r.json() : null; } catch { return null; } };
+const [config, profile] = await Promise.all([local("skin/config.json"), local("skin/profile.json")]);
+if (TEMPLATES[config?.template]) state.template = config.template;
+if (THEMES[config?.theme]) state.theme = config.theme;
+if (profile?.login) {
+  state.profile = profile;
+  $("#user").value = profile.login;
+  status(`Showing @${profile.login} as of the last Action run.`);
+} else status("Showing a sample profile. Enter a username to preview real data.");
+
+addOptions($("#templates"), "template", Object.entries(TEMPLATES), (value, tpl) => {
+  const img = Object.assign(document.createElement("img"), { alt: "", width: 1200, height: 300 });
+  img.dataset.template = value;
+  return [img, el("span", "opt-name", tpl.label), el("span", "opt-about", tpl.about)];
+});
+addOptions($("#themes"), "theme", Object.entries(THEMES), (value, th) => {
+  const swatch = el("span", "swatch");
+  swatch.style.background = th.bg;
+  for (const c of th.palette) { const dot = el("i"); dot.style.background = c; swatch.append(dot); }
+  return [swatch, el("span", "opt-name", value)];
+});
+draw();
+
+$("#lookup").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const login = $("#user").value.trim().replace(/^@/, "");
+  if (!/^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i.test(login))
+    return status("GitHub usernames use letters, numbers and single hyphens, up to 39 characters.", true);
+  $("#load").disabled = true;
+  status(`Loading @${login}…`);
+  try {
+    state.profile = await loadProfile(login);
+    status(`Showing @${state.profile.login}.`);
+    draw();
+  } catch (err) {
+    status(err instanceof TypeError
+      ? "This copy of the builder can't reach GitHub. Username lookups work when it runs from GitHub Pages or a local web server."
+      : err.message, true);
+  } finally {
+    $("#load").disabled = false;
+  }
+});
+
+$("#copy").addEventListener("click", async () => {
+  try {
+    await navigator.clipboard.writeText($("#settings").textContent);
+    $("#copy").textContent = "Copied";
+    setTimeout(() => ($("#copy").textContent = "Copy"), 1500);
+  } catch {
+    getSelection().selectAllChildren($("#settings"));
+    status("Copy didn't work here. The line is selected, so press Ctrl+C or ⌘C.");
+  }
+});
+</script>

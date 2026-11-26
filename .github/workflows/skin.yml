@@ -6,6 +6,8 @@ on:
   workflow_dispatch:
   push:
     paths:
+      - "skin/config.json"
+      - "skin/render.mjs"
       - "skin/skin.mjs"
       - ".github/workflows/skin.yml"
 
@@ -18,14 +20,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: node --test skin/skin.test.mjs
-      - run: node skin/skin.mjs
+      - run: node skin/skin.mjs # template and theme come from skin/config.json
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SKIN_USER: ${{ github.repository_owner }}
-          THEME: github-dark # github-dark | dracula | neon | ocean | light
       - name: Commit updated images
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add skin/*.svg
+          git add skin/*.svg skin/profile.json
           git diff --cached --quiet || (git commit -m "Update README skin" && git push)
