@@ -131,7 +131,12 @@ let urls = [];
 
 const el = (tag, className = "", text = "") => Object.assign(document.createElement(tag), { className, textContent: text });
 const svgUrl = (svg) => { const u = URL.createObjectURL(new Blob([svg], { type: "image/svg+xml" })); urls.push(u); return u; };
-const status = (text, isError = false) => { $("#status").textContent = text; $("#status").classList.toggle("error", isError); };
+const LIVE_BUILDER = "https://dakagoa.github.io/Test/";
+const status = (text, isError = false, href) => {
+  $("#status").textContent = text;
+  $("#status").classList.toggle("error", isError);
+  if (href) $("#status").append(Object.assign(document.createElement("a"), { href, target: "_blank", rel: "noopener", textContent: href.replace("https://", "") }));
+};
 
 function draw() {
   for (const u of urls) URL.revokeObjectURL(u);
@@ -193,9 +198,13 @@ $("#lookup").addEventListener("submit", async (e) => {
     status(`Showing @${state.profile.login}.`);
     draw();
   } catch (err) {
-    status(err instanceof TypeError
-      ? "This copy of the builder can't reach GitHub. Username lookups work when it runs from GitHub Pages or a local web server."
-      : err.message, true);
+    if (!(err instanceof TypeError)) status(err.message, true);
+    // A TypeError means the page may not call GitHub at all (claude.ai pages, offline copies): fall back to the saved profile.
+    else if (profile && login.toLowerCase() === profile.login.toLowerCase()) {
+      state.profile = profile;
+      draw();
+      status(`Showing @${profile.login} as of the last Action run.`);
+    } else status(`This page can't call GitHub, so it only shows the profile saved by your last Action run. To look up any username, use `, false, LIVE_BUILDER);
   } finally {
     $("#load").disabled = false;
   }
