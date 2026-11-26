@@ -73,7 +73,7 @@
     <circle cx="1022" cy="310" r="2.2" fill="#3fb950">
       <animate attributeName="cy" values="310;-10" dur="11.0s" begin="-4.7s" repeatCount="indefinite"/>
       <animate attributeName="opacity" values="0;.7;0" dur="11.0s" begin="-4.7s" repeatCount="indefinite"/></circle>
-    <g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.286;1" dur="1.4s"/>
+    <g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.286;1" dur="1.40s"/>
     <rect x="830" y="139" width="16" height="16" rx="4" fill="#f778ba" opacity="0.49">
       <animate attributeName="opacity" values="0.49;1.00;0.49" dur="3s" begin="0.00s" repeatCount="indefinite"/></rect>
     <rect x="830" y="205" width="16" height="16" rx="4" fill="#d29922" opacity="0.41">
@@ -217,9 +217,9 @@
     </g>
   </g>
   <rect x=".5" y=".5" width="1199" height="299" rx="18" fill="none" stroke="#30363d"/>
-  <text x="80" y="135" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="64" font-weight="800" fill="url(#ink)"><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.000;1" dur="0.6s"/>David Jeremic</text>
+  <text x="80" y="135" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="64" font-weight="800" fill="url(#ink)"><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.000;1" dur="0.60s"/>David Jeremic</text>
   <text x="80" y="196" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" fill="#e6edf3" clip-path="url(#type)">Hi, I&#39;m @DakaGoa</text>
   <rect x="291.2" y="176" width="3" height="26" fill="#58a6ff"><animate attributeName="x" values="82;95.2;108.4;121.6;134.8;148;161.2;174.4;187.6;200.8;214;227.2;240.4;253.6;266.8;280;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2" dur="4.20s" calcMode="discrete" repeatCount="indefinite"/>
     <animate attributeName="opacity" values="1;1;0;0" dur="1s" repeatCount="indefinite"/></rect>
-  <text x="80" y="248" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="18" fill="#8b949e"><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.571;1" dur="1.4s"/>@DakaGoa  ·  Serbia</text>
+  <text x="80" y="248" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="18" fill="#8b949e"><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.571;1" dur="1.40s"/>@DakaGoa  ·  Serbia</text>
 </svg>
