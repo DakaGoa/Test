@@ -1,0 +1,38 @@
+{
+  "login": "DakaGoa",
+  "name": "David Jeremic",
+  "bio": "",
+  "location": "Serbia",
+  "stats": [
+    [
+      "Repos",
+      8
+    ],
+    [
+      "Stars",
+      0
+    ],
+    [
+      "Followers",
+      0
+    ],
+    [
+      "Joined",
+      "2014"
+    ]
+  ],
+  "languages": [
+    {
+      "name": "C++",
+      "pct": 0.3333333333333333
+    },
+    {
+      "name": "Rust",
+      "pct": 0.3333333333333333
+    },
+    {
+      "name": "JavaScript",
+      "pct": 0.3333333333333333
+    }
+  ]
+}
