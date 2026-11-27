@@ -7,6 +7,14 @@ export const THEMES = {
   neon: theme("#0a0014", "#1a0033", "#f5f0ff", "#a491cc", "#3d1f66", ["#ff2bd6", "#00f0ff", "#b4ff00", "#ffb800", "#8a5cff"]),
   ocean: theme("#011627", "#0b2942", "#d6deeb", "#86a7c4", "#1d3b53", ["#82aaff", "#7fdbca", "#c792ea", "#ffcb8b", "#f78c6c"]),
   light: theme("#ffffff", "#f6f8fa", "#1f2328", "#59636e", "#d1d9e0", ["#0969da", "#1a7f37", "#9a6700", "#bf3989", "#8250df"]),
+  midnight: theme("#05070f", "#0d1326", "#e5ecff", "#8a97bd", "#1f2a4a", ["#7aa2ff", "#a78bfa", "#38bdf8", "#f472b6", "#facc15"]),
+  aurora: theme("#071a1f", "#0d1f33", "#e6fbff", "#8fb8c4", "#1c3d4a", ["#4ade80", "#22d3ee", "#a78bfa", "#f0abfc", "#fde047"]),
+  sunset: theme("#1a0f14", "#2a1520", "#ffeef0", "#c49aa6", "#4a2a36", ["#ff7a59", "#ffc15e", "#ff4f8b", "#c084fc", "#5eead4"]),
+  forest: theme("#0f1a14", "#16251c", "#e6f2e9", "#8fb39b", "#2a4034", ["#6ee7a0", "#c3e88d", "#f2c14e", "#7dd3fc", "#f78c6c"]),
+  phosphor: theme("#000a03", "#031a0a", "#c8ffd4", "#6fbf84", "#0f3a1c", ["#00ff66", "#7dffa8", "#39ff14", "#00c853", "#b2ff59"]),
+  mono: theme("#111111", "#1b1b1b", "#f2f2f2", "#9a9a9a", "#333333", ["#ffffff", "#bdbdbd", "#8c8c8c", "#d9d9d9", "#6b6b6b"]),
+  paper: theme("#faf7f2", "#f1ebe1", "#2b2622", "#6e6359", "#ddd3c5", ["#c2410c", "#0f766e", "#7c3aed", "#b45309", "#be185d"]),
+  rose: theme("#fff5f7", "#ffe9ee", "#3b1f2b", "#8a5a6b", "#f5c6d3", ["#c8175f", "#9333ea", "#ea580c", "#0e7490", "#15803d"]),
 };
 
 export function summarize(user, repos) {
