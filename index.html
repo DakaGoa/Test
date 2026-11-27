@@ -163,11 +163,14 @@ function failure(e) {
       return "Activate needs your OK to use Composio. Press Activate again and choose Allow.";
     case "server_unavailable": case "upstream_error": case "cancelled":
       return "Composio didn't answer, so the switch may or may not have gone through. Check your profile before pressing Activate again.";
-    default:
-      return /connect/i.test(e?.message ?? "")
-        ? "GitHub isn't connected in Composio yet. Connect it there, then press Activate again."
-        : e?.message || "The switch didn't go through.";
   }
+  // A tool_error carries Composio's own reply; so does a reply that resolved but reports a failure.
+  const parse = (s) => { try { return JSON.parse(s); } catch { return null; } };
+  const reply = e?.payload ?? e?.result?.structuredContent ?? parse(e?.result?.content?.[0]?.text) ?? parse(e?.message);
+  const msg = (reply && composioError(reply)) || e?.message || "The switch didn't go through.";
+  if (/no active connection/i.test(msg)) return "GitHub isn't connected in Composio yet. Connect it in Composio, then press Activate again.";
+  if (/multiple github accounts/i.test(msg)) return "Composio has more than one GitHub account connected. Remove the extra one in Composio, then press Activate again.";
+  return msg;
 }
 
 const local = async (path) => { try { const r = await fetch(path); return r.ok ? await r.json() : null; } catch { return null; } };
@@ -211,8 +214,7 @@ $("#activate").addEventListener("click", async () => {
       sync_response_to_workbench: false,
       thought: "Switch the GitHub profile README to the skin picked in the builder.",
     });
-    const err = composioError(res.payload);
-    if (err) throw { message: err };
+    if (composioError(res.payload)) throw { payload: res.payload };
     status(`${label} is live. GitHub can take a minute to show it:`, false, `https://github.com/${login}`);
   } catch (e) {
     status(failure(e), true);
