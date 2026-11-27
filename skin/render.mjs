@@ -274,11 +274,231 @@ function minimalHeader(d, t) {
 `;
 }
 
+// Full-bleed header: clips `body` to the rounded frame and draws the border on top.
+const framed = (t, body, fill = "url(#bg)") => `<clipPath id="frame"><rect width="1200" height="300" rx="18"/></clipPath>
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="300" fill="${fill}"/>
+    ${body}
+  </g>
+  <rect x=".5" y=".5" width="1199" height="299" rx="18" fill="none" stroke="${t.border}"/>`;
+const title = (d, x, y, size, { fill = "url(#ink)", anchor = "start", max = 22, weight = 800 } = {}) =>
+  `<text x="${x}" y="${y}" text-anchor="${anchor}" font-family="${SANS}" font-size="${size}" font-weight="${weight}" fill="${fill}">${fadeIn(0)}${esc(clip(d.name, max))}</text>`;
+const metaLine = (d, t, x, y, anchor = "start", fill = t.muted) =>
+  `<text x="${x}" y="${y}" text-anchor="${anchor}" font-family="${SANS}" font-size="18" fill="${fill}">${fadeIn(0.8)}${esc(meta(d))}</text>`;
+const joined = (d) => d.stats.find(([label]) => label === "Joined")?.[1] ?? "";
+
+function waveHeader(d, t) {
+  const waves = [0, 1, 2]
+    .map((i) => {
+      const y = 228 + i * 20, amp = 16 - i * 3;
+      let path = `M0 ${y}`;
+      for (let x = 0; x < 1800; x += 300) path += ` q75 ${-amp} 150 0 t150 0`; // one crest + trough per 300px, so a -300 shift loops
+      return `<path d="${path} V300 H0Z" fill="${t.palette[i]}" opacity="${(0.25 + i * 0.12).toFixed(2)}">
+      <animateTransform attributeName="transform" type="translate" values="0 0;-300 0" dur="${7 - i * 2}s" repeatCount="indefinite"/></path>`;
+    })
+    .join("\n    ");
+  return `${open(1200, 300, `${d.name}: ${tagline(d)}`)}
+  <defs>${grads(t)}</defs>
+  ${framed(t, waves)}
+  ${title(d, 80, 112, 60)}
+  ${typed(tagline(d), { x: 80, y: 160, fill: t.fg, cursor: t.palette[0] })}
+  ${metaLine(d, t, 80, 196)}
+</svg>
+`;
+}
+
+function glowHeader(d, t) {
+  const flicker = `<animate attributeName="opacity" values="1;1;.35;1;.8;1;1" keyTimes="0;.55;.57;.6;.62;.64;1" dur="5s" repeatCount="indefinite"/>`;
+  return `${open(1200, 300, `${d.name}: ${tagline(d)}`)}
+  <defs>
+    ${grads(t)}
+    <filter id="glow" x="-20%" y="-60%" width="140%" height="220%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  ${framed(t, "", t.bg)}
+  <rect x="36" y="30" width="1128" height="240" rx="26" fill="none" stroke="${t.palette[2]}" stroke-width="2" opacity=".75" filter="url(#glow)"/>
+  <text x="600" y="148" text-anchor="middle" font-family="${SANS}" font-size="72" font-weight="700" fill="none" stroke="${t.palette[0]}" stroke-width="2.5" filter="url(#glow)">${flicker}${esc(clip(d.name, 24))}</text>
+  <text x="600" y="202" text-anchor="middle" font-family="${SANS}" font-size="24" fill="${t.palette[1]}" filter="url(#glow)">${fadeIn(0.6, 1)}${esc(tagline(d, 60))}</text>
+  ${metaLine(d, t, 600, 246, "middle")}
+</svg>
+`;
+}
+
+function horizonHeader(d, t) {
+  const vx = 900, hy = 196; // vanishing point x, horizon y
+  const stripes = [0, 1, 2, 3, 4].map((i) => `<rect x="800" y="${158 + i * 9}" width="200" height="${(1 + i * 1.2).toFixed(1)}" fill="black"/>`).join("");
+  const fan = Array.from({ length: 17 }, (_, i) => `<line x1="${vx}" y1="${hy}" x2="${vx + (i - 8) * 170}" y2="300"/>`).join("");
+  const move = (attr, i) =>
+    `<animate attributeName="${attr}" values="${hy};300" keyTimes="0;1" keySplines=".6 0 1 1" calcMode="spline" dur="3s" begin="-${(i * 0.5).toFixed(1)}s" repeatCount="indefinite"/>`;
+  const rows = Array.from({ length: 6 }, (_, i) => `<line x1="0" x2="1200" y1="${hy}" y2="${hy}">${move("y1", i)}${move("y2", i)}</line>`).join("");
+  return `${open(1200, 300, `${d.name}: ${tagline(d)}`)}
+  <defs>
+    ${grads(t)}
+    <linearGradient id="sun" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${t.palette[3]}"/><stop offset="1" stop-color="${t.palette[0]}"/></linearGradient>
+    <mask id="cut"><rect width="1200" height="300" fill="white"/>${stripes}</mask>
+  </defs>
+  ${framed(t, `<circle cx="${vx}" cy="150" r="78" fill="url(#sun)" mask="url(#cut)"/>
+    <rect y="${hy}" width="1200" height="${300 - hy}" fill="${t.bg}"/>
+    <g stroke="${t.palette[1]}" stroke-width="1.5" opacity=".55">${fan}${rows}</g>
+    <line x1="0" x2="1200" y1="${hy}" y2="${hy}" stroke="${t.palette[0]}" stroke-width="2"/>`)}
+  ${title(d, 72, 104, 58, { max: 20 })}
+  ${typed(tagline(d, 50), { x: 72, y: 148, size: 20, fill: t.fg, cursor: t.palette[0] })}
+  ${metaLine(d, t, 72, 180)}
+</svg>
+`;
+}
+
+function blueprintHeader(d, t) {
+  const cells = [["DRAWN BY", `@${d.login}`], ["LOCATION", d.location || "—"], ["SINCE", joined(d)], ["SHEET", "1 / 1"]];
+  const block = cells
+    .map(([k, v], i) => {
+      const x = 860 + (i % 2) * 150, y = 196 + Math.floor(i / 2) * 38;
+      return `<rect x="${x}" y="${y}" width="150" height="38" fill="none" stroke="${t.palette[0]}" stroke-opacity=".6"/>
+  <text x="${x + 8}" y="${y + 13}" font-family="${MONO}" font-size="9" letter-spacing="1" fill="${t.muted}">${k}</text>
+  <text x="${x + 8}" y="${y + 30}" font-family="${MONO}" font-size="14" fill="${t.fg}">${esc(clip(String(v), 16))}</text>`;
+    })
+    .join("\n  ");
+  return `${open(1200, 300, `${d.name}: ${tagline(d)}`)}
+  <defs>
+    ${grads(t)}
+    <pattern id="minor" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="${t.border}"/></pattern>
+    <pattern id="major" width="100" height="100" patternUnits="userSpaceOnUse"><rect width="100" height="100" fill="url(#minor)"/><path d="M100 0H0V100" fill="none" stroke="${t.palette[0]}" stroke-opacity=".3"/></pattern>
+  </defs>
+  ${framed(t, `<rect width="1200" height="300" fill="url(#major)"/>`, t.bg)}
+  ${title(d, 80, 118, 56, { fill: t.fg, weight: 600 })}
+  <g stroke="${t.palette[0]}" stroke-width="1.5">
+    <line x1="80" y1="146" x2="560" y2="146" stroke-dasharray="480">${enter("stroke-dashoffset", 480, 0, 0.3, 1)}</line>
+    <line x1="80" y1="138" x2="80" y2="154"/><line x1="560" y1="138" x2="560" y2="154"/>
+  </g>
+  <text x="320" y="168" text-anchor="middle" font-family="${MONO}" font-size="12" fill="${t.palette[0]}">fig. 1 — profile of @${esc(d.login)}</text>
+  ${typed(tagline(d), { x: 80, y: 222, size: 20, fill: t.fg, cursor: t.palette[0], wait: 1 })}
+  <g transform="translate(1010 96)" stroke="${t.palette[0]}" fill="none">
+    <circle r="52" stroke-dasharray="4 6"><animateTransform attributeName="transform" type="rotate" values="0;360" dur="60s" repeatCount="indefinite"/></circle>
+    <circle r="36" stroke-opacity=".5"/><line x1="-62" x2="62"/><line y1="-62" y2="62"/>
+  </g>
+  <text x="1010" y="30" text-anchor="middle" font-family="${MONO}" font-size="11" fill="${t.palette[0]}">N</text>
+  ${block}
+</svg>
+`;
+}
+
+function equalizerHeader(d, t) {
+  const bars = Array.from({ length: 30 }, (_, i) => {
+    const hs = [0, 1, 2, 3, 4].map((k) => Math.round(20 + rnd(i, k + 7) * 150)), loop = [...hs, hs[0]];
+    const dur = (1.6 + rnd(i, 13) * 1.2).toFixed(2);
+    return `<rect x="${650 + i * 17}" y="${240 - hs[0]}" width="11" height="${hs[0]}" rx="2" fill="url(#eq)">
+      <animate attributeName="height" values="${loop.join(";")}" dur="${dur}s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="${loop.map((h) => 240 - h).join(";")}" dur="${dur}s" repeatCount="indefinite"/></rect>`;
+  }).join("\n    ");
+  return `${open(1200, 300, `${d.name}: ${tagline(d)}`)}
+  <defs>
+    ${grads(t)}
+    <linearGradient id="eq" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="${t.palette[0]}"/><stop offset="1" stop-color="${t.palette[1]}"/></linearGradient>
+  </defs>
+  ${framed(t, `${bars}
+    <line x1="650" y1="244" x2="1161" y2="244" stroke="${t.border}" stroke-width="2"/>`)}
+  ${title(d, 72, 118, 56, { max: 17 })}
+  ${typed(tagline(d, 46), { x: 72, y: 166, size: 20, fill: t.fg, cursor: t.palette[0] })}
+  ${metaLine(d, t, 72, 210)}
+</svg>
+`;
+}
+
+function idcardHeader(d, t) {
+  const initials = (d.name.split(/\s+/).filter((w) => /^\p{L}/u.test(w)).slice(0, 2).map((w) => w[0]).join("") || d.login[0] || "?").toUpperCase();
+  const seed = d.login || "skin";
+  const code = [];
+  for (let i = 0, x = 990; x < 1150; i++) {
+    const w = 1 + ((seed.charCodeAt(i % seed.length) + i) % 4); // barcode drawn from the username, so it is stable
+    code.push(`<rect x="${x}" y="214" width="${w}" height="46"/>`);
+    x += w + 2 + (i % 3);
+  }
+  const field = (label, value, x, y, delay) => `<g>${fadeIn(delay)}
+    <text x="${x}" y="${y}" font-family="${MONO}" font-size="12" letter-spacing="2" fill="${t.muted}">${label}</text>
+    <text x="${x}" y="${y + 30}" font-family="${SANS}" font-size="24" font-weight="600" fill="${t.fg}">${esc(clip(String(value), 18))}</text></g>`;
+  return `${open(1200, 300, `${d.name}: ${tagline(d)}`)}
+  <defs>${grads(t)}</defs>
+  ${framed(t, "")}
+  <circle cx="170" cy="150" r="74" fill="${t.bg2}" stroke="${t.border}"/>
+  <circle cx="170" cy="150" r="86" fill="none" stroke="${t.palette[0]}" stroke-width="2" stroke-dasharray="6 10">
+    <animateTransform attributeName="transform" type="rotate" values="0 170 150;360 170 150" dur="24s" repeatCount="indefinite"/></circle>
+  <text x="170" y="170" text-anchor="middle" font-family="${SANS}" font-size="56" font-weight="800" fill="url(#ink)">${esc(initials)}</text>
+  <rect x="1010" y="36" width="150" height="30" rx="15" fill="none" stroke="${t.palette[0]}"/>
+  <text x="1085" y="56" text-anchor="middle" font-family="${MONO}" font-size="12" letter-spacing="3" fill="${t.palette[0]}">DEVELOPER</text>
+  <g>${fadeIn(0)}
+    <text x="300" y="70" font-family="${MONO}" font-size="12" letter-spacing="2" fill="${t.muted}">NAME</text>
+    <text x="300" y="106" font-family="${SANS}" font-size="36" font-weight="700" fill="${t.fg}">${esc(clip(d.name, 30))}</text></g>
+  ${field("HANDLE", `@${d.login}`, 300, 148, 0.3)}
+  ${field("BASED IN", d.location || "—", 560, 148, 0.45)}
+  ${field("SINCE", joined(d), 800, 148, 0.6)}
+  ${typed(tagline(d, 50), { x: 300, y: 252, size: 18, fill: t.fg, cursor: t.palette[0], wait: 1 })}
+  <g fill="${t.fg}" opacity=".7">${code.join("")}</g>
+</svg>
+`;
+}
+
+function lavaHeader(d, t) {
+  const blobs = t.palette
+    .map((c, i) => {
+      const pts = [0, 1, 2, 3].map((k) => [Math.round(100 + rnd(i, k + 20) * 1000), Math.round(30 + rnd(i, k + 30) * 240)]), loop = [...pts, pts[0]];
+      const dur = 14 + i * 3;
+      return `<circle cx="${pts[0][0]}" cy="${pts[0][1]}" r="${Math.round(90 + rnd(i, 40) * 70)}" fill="${c}" opacity=".55">
+      <animate attributeName="cx" values="${loop.map((p) => p[0]).join(";")}" dur="${dur}s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="${loop.map((p) => p[1]).join(";")}" dur="${dur}s" repeatCount="indefinite"/></circle>`;
+    })
+    .join("\n    ");
+  const line = tagline(d);
+  return `${open(1200, 300, `${d.name}: ${line}`)}
+  <defs>
+    ${grads(t)}
+    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="50"/></filter>
+  </defs>
+  ${framed(t, `<g filter="url(#blur)">${blobs}</g>`, t.bg)}
+  ${title(d, 600, 140, 64, { fill: t.fg, anchor: "middle", max: 26 })}
+  ${typed(line, { x: Math.round(600 - line.length * 6.6), y: 192, fill: t.fg, cursor: t.palette[0], wait: 0.6 })}
+  ${metaLine(d, t, 600, 240, "middle", t.fg) /* muted text gets lost over the bright blobs */}
+</svg>
+`;
+}
+
+function tickerHeader(d, t) {
+  const cw = 10.8; // 18px monospace
+  const items = [
+    ...d.stats.map(([label, value]) => [label.toUpperCase(), fmt(value), t.fg]),
+    ...d.languages.map((l, i) => [clip(l.name, 14), `${Math.round(l.pct * 100)}%`, t.palette[i]]),
+  ];
+  const unit = items
+    .map(([label, value, color]) => `<tspan dx="24" fill="${t.muted}">${esc(label)}</tspan><tspan dx="10" fill="${color}" font-weight="700">${esc(value)}</tspan><tspan dx="24" fill="${t.border}">•</tspan>`)
+    .join("");
+  const unitW = items.reduce((w, [label, value]) => w + (label.length + value.length + 1) * cw + 58, 0);
+  const copies = Math.ceil(2400 / unitW); // enough copies that a one-unit shift loops without a gap
+  return `${open(1200, 300, `${d.name}: ${tagline(d)}`)}
+  <defs>${grads(t)}</defs>
+  ${framed(t, `<rect y="206" width="1200" height="58" fill="${t.bg2}"/>
+    <line x1="0" x2="1200" y1="206" y2="206" stroke="${t.border}"/><line x1="0" x2="1200" y1="264" y2="264" stroke="${t.border}"/>
+    <g><animateTransform attributeName="transform" type="translate" values="0 0;-${unitW.toFixed(1)} 0" dur="${(unitW / 60).toFixed(1)}s" repeatCount="indefinite"/>
+      <text x="120" y="241" font-family="${MONO}" font-size="18">${unit.repeat(copies)}</text></g>
+    <rect y="206" width="120" height="58" fill="${t.palette[0]}"/>
+    <text x="60" y="241" text-anchor="middle" font-family="${MONO}" font-size="16" font-weight="700" letter-spacing="2" fill="${t.bg}">STATS</text>`)}
+  ${title(d, 72, 104, 60)}
+  ${typed(tagline(d), { x: 72, y: 150, fill: t.fg, cursor: t.palette[0] })}
+  ${metaLine(d, t, 72, 186)}
+</svg>
+`;
+}
+
 export const TEMPLATES = {
   classic: { label: "Classic", about: "Gradient name, typed tagline, pulsing tiles", header: classicHeader, stats: cardStats },
   terminal: { label: "Terminal", about: "Your profile as a shell session", header: terminalHeader, stats: terminalStats },
   orbit: { label: "Orbit", about: "Top languages circling a star", header: orbitHeader, stats: cardStats },
   minimal: { label: "Minimal", about: "Light type and one drawn line", header: minimalHeader, stats: cardStats },
+  wave: { label: "Wave", about: "Layered waves rolling under your name", header: waveHeader, stats: cardStats },
+  glow: { label: "Glow", about: "Your name as a flickering neon sign", header: glowHeader, stats: cardStats },
+  horizon: { label: "Horizon", about: "Striped sun over a moving grid", header: horizonHeader, stats: cardStats },
+  blueprint: { label: "Blueprint", about: "Drafting grid with a title block", header: blueprintHeader, stats: cardStats },
+  equalizer: { label: "Equalizer", about: "Audio bars bouncing beside your name", header: equalizerHeader, stats: cardStats },
+  idcard: { label: "ID Card", about: "Monogram, labelled fields and a barcode", header: idcardHeader, stats: cardStats },
+  lava: { label: "Lava", about: "Soft colour blobs drifting behind", header: lavaHeader, stats: cardStats },
+  ticker: { label: "Ticker", about: "Your stats scrolling like a market feed", header: tickerHeader, stats: cardStats },
 };
 
 // Every template draws the same two files, so README.md stays the same whichever one is picked.
