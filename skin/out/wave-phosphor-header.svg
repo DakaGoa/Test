@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-label="David Jeremic: Hi, I&#39;m @DakaGoa">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#000a03"/><stop offset="1" stop-color="#031a0a"/></linearGradient>
+    <linearGradient id="ink" x1="0" x2="1"><stop offset="0" stop-color="#00ff66"/><stop offset="1" stop-color="#7dffa8"/></linearGradient></defs>
+  <clipPath id="frame"><rect width="1200" height="300" rx="18"/></clipPath>
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="300" fill="url(#bg)"/>
+    <path d="M0 228 q75 -16 150 0 t150 0 q75 -16 150 0 t150 0 q75 -16 150 0 t150 0 q75 -16 150 0 t150 0 q75 -16 150 0 t150 0 q75 -16 150 0 t150 0 V300 H0Z" fill="#00ff66" opacity="0.25">
+      <animateTransform attributeName="transform" type="translate" values="0 0;-300 0" dur="7s" repeatCount="indefinite"/></path>
+    <path d="M0 248 q75 -13 150 0 t150 0 q75 -13 150 0 t150 0 q75 -13 150 0 t150 0 q75 -13 150 0 t150 0 q75 -13 150 0 t150 0 q75 -13 150 0 t150 0 V300 H0Z" fill="#7dffa8" opacity="0.37">
+      <animateTransform attributeName="transform" type="translate" values="0 0;-300 0" dur="5s" repeatCount="indefinite"/></path>
+    <path d="M0 268 q75 -10 150 0 t150 0 q75 -10 150 0 t150 0 q75 -10 150 0 t150 0 q75 -10 150 0 t150 0 q75 -10 150 0 t150 0 q75 -10 150 0 t150 0 V300 H0Z" fill="#39ff14" opacity="0.49">
+      <animateTransform attributeName="transform" type="translate" values="0 0;-300 0" dur="3s" repeatCount="indefinite"/></path>
+  </g>
+  <rect x=".5" y=".5" width="1199" height="299" rx="18" fill="none" stroke="#0f3a1c"/>
+  <text x="80" y="112" text-anchor="start" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="60" font-weight="800" fill="url(#ink)"><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.000;1" dur="0.60s"/>David Jeremic</text>
+  <clipPath id="type"><rect x="80" y="131.4" height="39.6" width="211.2"><animate attributeName="width" values="0;13.2;26.4;39.6;52.8;66;79.2;92.4;105.6;118.8;132;145.2;158.4;171.6;184.8;198;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2" dur="4.20s" calcMode="discrete" repeatCount="indefinite"/></rect></clipPath>
+  <text x="80" y="160" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" fill="#c8ffd4" clip-path="url(#type)">Hi, I&#39;m @DakaGoa</text>
+  <rect x="293.2" y="140.2" width="3" height="26.4" fill="#00ff66"><animate attributeName="x" values="82;95.2;108.4;121.6;134.8;148;161.2;174.4;187.6;200.8;214;227.2;240.4;253.6;266.8;280;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2;293.2" dur="4.20s" calcMode="discrete" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="1;1;0;0" dur="1s" repeatCount="indefinite"/></rect>
+  <text x="80" y="196" text-anchor="start" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="18" fill="#6fbf84"><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.571;1" dur="1.40s"/>@DakaGoa  ·  Serbia</text>
+</svg>

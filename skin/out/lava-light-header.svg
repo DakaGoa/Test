@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-label="David Jeremic: Hi, I&#39;m @DakaGoa">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f6f8fa"/></linearGradient>
+    <linearGradient id="ink" x1="0" x2="1"><stop offset="0" stop-color="#0969da"/><stop offset="1" stop-color="#1a7f37"/></linearGradient>
+    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="50"/></filter>
+  </defs>
+  <clipPath id="frame"><rect width="1200" height="300" rx="18"/></clipPath>
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="300" fill="#ffffff"/>
+    <g filter="url(#blur)"><circle cx="340" cy="102" r="134" fill="#0969da" opacity=".55">
+      <animate attributeName="cx" values="340;811;410;564;340" dur="14s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="102;116;216;168;102" dur="14s" repeatCount="indefinite"/></circle>
+    <circle cx="219" cy="104" r="140" fill="#1a7f37" opacity=".55">
+      <animate attributeName="cx" values="219;892;989;432;219" dur="17s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="104;267;209;170;104" dur="17s" repeatCount="indefinite"/></circle>
+    <circle cx="379" cy="51" r="160" fill="#9a6700" opacity=".55">
+      <animate attributeName="cx" values="379;881;478;855;379" dur="20s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="51;191;79;95;51" dur="20s" repeatCount="indefinite"/></circle>
+    <circle cx="130" cy="73" r="128" fill="#bf3989" opacity=".55">
+      <animate attributeName="cx" values="130;203;496;1066;130" dur="23s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="73;221;263;75;73" dur="23s" repeatCount="indefinite"/></circle>
+    <circle cx="882" cy="142" r="104" fill="#8250df" opacity=".55">
+      <animate attributeName="cx" values="882;563;141;363;882" dur="26s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="142;167;207;134;142" dur="26s" repeatCount="indefinite"/></circle></g>
+  </g>
+  <rect x=".5" y=".5" width="1199" height="299" rx="18" fill="none" stroke="#d1d9e0"/>
+  <text x="600" y="140" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="64" font-weight="800" fill="#1f2328"><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.000;1" dur="0.60s"/>David Jeremic</text>
+  <clipPath id="type"><rect x="494" y="163.4" height="39.6" width="211.2"><animate attributeName="width" values="0;0;0;0;0;0;0;0;0;0;13.2;26.4;39.6;52.8;66;79.2;92.4;105.6;118.8;132;145.2;158.4;171.6;184.8;198;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2;211.2" dur="4.83s" calcMode="discrete" repeatCount="indefinite"/></rect></clipPath>
+  <text x="494" y="192" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" fill="#1f2328" clip-path="url(#type)">Hi, I&#39;m @DakaGoa</text>
+  <rect x="707.2" y="172.2" width="3" height="26.4" fill="#0969da"><animate attributeName="x" values="496;496;496;496;496;496;496;496;496;496;509.2;522.4;535.6;548.8;562;575.2;588.4;601.6;614.8;628;641.2;654.4;667.6;680.8;694;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2;707.2" dur="4.83s" calcMode="discrete" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="1;1;0;0" dur="1s" repeatCount="indefinite"/></rect>
+  <text x="600" y="240" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="18" fill="#1f2328"><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.571;1" dur="1.40s"/>@DakaGoa  ·  Serbia</text>
+</svg>

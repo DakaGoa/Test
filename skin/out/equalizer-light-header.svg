@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-label="David Jeremic: Hi, I&#39;m @DakaGoa">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f6f8fa"/></linearGradient>
+    <linearGradient id="ink" x1="0" x2="1"><stop offset="0" stop-color="#0969da"/><stop offset="1" stop-color="#1a7f37"/></linearGradient>
+    <linearGradient id="eq" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#0969da"/><stop offset="1" stop-color="#1a7f37"/></linearGradient>
+  </defs>
+  <clipPath id="frame"><rect width="1200" height="300" rx="18"/></clipPath>
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="300" fill="url(#bg)"/>
+    <rect x="650" y="202" width="11" height="38" rx="2" fill="url(#eq)">
+      <animate attributeName="height" values="38;70;158;129;137;38" dur="1.93s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="202;170;82;111;103;202" dur="1.93s" repeatCount="indefinite"/></rect>
+    <rect x="667" y="204" width="11" height="36" rx="2" fill="url(#eq)">
+      <animate attributeName="height" values="36;166;63;136;21;36" dur="2.39s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="204;74;177;104;219;204" dur="2.39s" repeatCount="indefinite"/></rect>
+    <rect x="684" y="84" width="11" height="156" rx="2" fill="url(#eq)">
+      <animate attributeName="height" values="156;50;82;169;52;156" dur="2.75s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="84;190;158;71;188;84" dur="2.75s" repeatCount="indefinite"/></rect>
+    <rect x="701" y="139" width="11" height="101" rx="2" fill="url(#eq)">
+      <animate attributeName="height" values="101;55;96;142;129;101" dur="2.20s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="139;185;144;98;111;139" dur="2.20s" repeatCount="indefinite"/></rect>
+    <rect x="718" y="101" width="11" height="139" rx="2" fill="url(#eq)">
+      <animate attributeName="height" values="139;23;36;61;145;139" dur="2.07s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="101;217;204;179;95;101" dur="2.07s" repeatCount="indefinite"/></rect>
+    <rect x="735" y="163" width="11" height="77" rx="2" fill="url(#eq)">
+      <animate attributeName="height" values="77;30;109;60;168;77" dur="2.17s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="163;210;131;180;72;163" dur="2.17s" repeatCount="indefinite"/></rect>
+    <rect x="752" y="108" width="11" height="132" rx="2" fill="url(#eq)">
+      <animate attributeName="height" values="132;108;68;134;99;132" dur="1.88s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="108;132;172;106;141;108" dur="1.88s" repeatCount="indefinite"/></rect>
+    <rect x="769" y="211" width="11" height="29" rx="2" fill="url(#eq)">
+      <animate attributeName="height" values="29;151;100;87;117;29" dur="1.74s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="211;89;140;153;123;211" dur="1.74s" repeatCount="indefinite"/></rect>
+    <rect x="786" y="94" width="11" height="146" rx="2" fill="url(#eq)">
+      <animate attributeName="height" values="146;103;80;128;168;146" dur="2.12s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="94;137;160;112;72;94" dur="2.12s" repeatCount="indefinite"/></rect>
+    <rect x="803" y="80" width="11" height="160" rx="2" fill="url(#eq)">
+      <animate attributeName="height" values="160;32;70;25;109;160" dur="1.72s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="80;208;170;215;131;80" dur="1.72s" repeatCount="indefinite"/></rect>
+    <rect x="820" y="198" width="11" height="42" rx="2" fill="url(#eq)">
+      <animate attributeName="height" values="42;112;136;71;95;42" dur="1.79s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="198;128;104;169;145;198" dur="1.79s" repeatCount="indefinite"/></rect>
+    <rect x="837" y="83" width="11" height="157" rx="2" fill="url(#eq)">
+      <animate attributeName="height" values="157;55;64;146;74;157" dur="1.68s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="83;185;176;94;166;83" dur="1.68s" repeatCount="indefinite"/></rect>
+    <rect x="854" y="205" width="11" height="35" rx="2" fill="url(#eq)">
+      <animate attributeName="height" values="35;94;144;117;143;35" dur="1.86s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="205;146;96;123;97;205" dur="1.86s" repeatCount="indefinite"/></rect>
+    <rect x="871" y="141" width="11" height="99" rx="2" fill="url(#eq)">
+      <animate attributeName="height" values="99;39;145;143;113;99" dur="1.85s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="141;201;95;97;127;141" dur="1.85s" repeatCount="indefinite"/></rect>
+    <rect x="888" y="84" width="11" height="156" rx="2" fill="url(#eq)">
+      <animate attributeName="height" values="156;52;168;61;140;156" dur="2.37s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="84;188;72;179;100;84" dur="2.37s" repeatCount="indefinite"/></rect>
+    <rect x="905" y="135" width="11" height="105" rx="2" fill="url(#eq)">
+      <animate attributeName="height" values="105;118;76;141;151;105" dur="2.78s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="135;122;164;99;89;135" dur="2.78s" repeatCount="indefinite"/></rect>
+    <rect x="922" y="116" width="11" height="124" rx="2" fill="url(#eq)">
+      <animate attributeName="height" values="124;96;70;135;91;124" dur="1.85s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="116;144;170;105;149;116" dur="1.85s" repeatCount="indefinite"/></rect>
+    <rect x="939" y="96" width="11" height="144" rx="2" fill="url(#eq)">
+      <animate attributeName="height" values="144;170;40;129;139;144" dur="2.10s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="96;70;200;111;101;96" dur="2.10s" repeatCount="indefinite"/></rect>
+    <rect x="956" y="112" width="11" height="128" rx="2" fill="url(#eq)">
+      <animate attributeName="height" values="128;130;53;50;135;128" dur="2.46s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="112;110;187;190;105;112" dur="2.46s" repeatCount="indefinite"/></rect>
+    <rect x="973" y="73" width="11" height="167" rx="2" fill="url(#eq)">
+      <animate attributeName="height" values="167;145;131;86;105;167" dur="1.77s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="73;95;109;154;135;73" dur="1.77s" repeatCount="indefinite"/></rect>
+    <rect x="990" y="187" width="11" height="53" rx="2" fill="url(#eq)">
+      <animate attributeName="height" values="53;168;35;131;50;53" dur="1.63s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="187;72;205;109;190;187" dur="1.63s" repeatCount="indefinite"/></rect>
+    <rect x="1007" y="119" width="11" height="121" rx="2" fill="url(#eq)">
+      <animate attributeName="height" values="121;54;20;123;114;121" dur="2.39s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="119;186;220;117;126;119" dur="2.39s" repeatCount="indefinite"/></rect>
+    <rect x="1024" y="195" width="11" height="45" rx="2" fill="url(#eq)">
+      <animate attributeName="height" values="45;110;121;66;21;45" dur="2.59s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="195;130;119;174;219;195" dur="2.59s" repeatCount="indefinite"/></rect>
+    <rect x="1041" y="209" width="11" height="31" rx="2" fill="url(#eq)">
+      <animate attributeName="height" values="31;162;130;74;27;31" dur="2.35s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="209;78;110;166;213;209" dur="2.35s" repeatCount="indefinite"/></rect>
+    <rect x="1058" y="126" width="11" height="114" rx="2" fill="url(#eq)">
+      <animate attributeName="height" values="114;121;91;110;54;114" dur="2.40s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="126;119;149;130;186;126" dur="2.40s" repeatCount="indefinite"/></rect>
+    <rect x="1075" y="106" width="11" height="134" rx="2" fill="url(#eq)">
+      <animate attributeName="height" values="134;142;112;123;164;134" dur="1.74s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="106;98;128;117;76;106" dur="1.74s" repeatCount="indefinite"/></rect>
+    <rect x="1092" y="100" width="11" height="140" rx="2" fill="url(#eq)">
+      <animate attributeName="height" values="140;21;84;166;52;140" dur="2.02s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="100;219;156;74;188;100" dur="2.02s" repeatCount="indefinite"/></rect>
+    <rect x="1109" y="194" width="11" height="46" rx="2" fill="url(#eq)">
+      <animate attributeName="height" values="46;160;109;87;106;46" dur="1.77s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="194;80;131;153;134;194" dur="1.77s" repeatCount="indefinite"/></rect>
+    <rect x="1126" y="172" width="11" height="68" rx="2" fill="url(#eq)">
+      <animate attributeName="height" values="68;150;38;39;63;68" dur="2.08s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="172;90;202;201;177;172" dur="2.08s" repeatCount="indefinite"/></rect>
+    <rect x="1143" y="178" width="11" height="62" rx="2" fill="url(#eq)">
+      <animate attributeName="height" values="62;145;160;46;117;62" dur="1.62s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="178;95;80;194;123;178" dur="1.62s" repeatCount="indefinite"/></rect>
+    <line x1="650" y1="244" x2="1161" y2="244" stroke="#d1d9e0" stroke-width="2"/>
+  </g>
+  <rect x=".5" y=".5" width="1199" height="299" rx="18" fill="none" stroke="#d1d9e0"/>
+  <text x="72" y="118" text-anchor="start" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="56" font-weight="800" fill="url(#ink)"><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.000;1" dur="0.60s"/>David Jeremic</text>
+  <clipPath id="type"><rect x="72" y="140" height="36" width="192"><animate attributeName="width" values="0;12;24;36;48;60;72;84;96;108;120;132;144;156;168;180;192;192;192;192;192;192;192;192;192;192;192;192;192;192;192;192;192;192;192;192;192;192;192;192;192;192;192;192;192;192;192;192;192;192;192;192;192;192;192;192;192;192;192;192" dur="4.20s" calcMode="discrete" repeatCount="indefinite"/></rect></clipPath>
+  <text x="72" y="166" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" fill="#1f2328" clip-path="url(#type)">Hi, I&#39;m @DakaGoa</text>
+  <rect x="266" y="148.0" width="3" height="24.0" fill="#0969da"><animate attributeName="x" values="74;86;98;110;122;134;146;158;170;182;194;206;218;230;242;254;266;266;266;266;266;266;266;266;266;266;266;266;266;266;266;266;266;266;266;266;266;266;266;266;266;266;266;266;266;266;266;266;266;266;266;266;266;266;266;266;266;266;266;266" dur="4.20s" calcMode="discrete" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="1;1;0;0" dur="1s" repeatCount="indefinite"/></rect>
+  <text x="72" y="210" text-anchor="start" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="18" fill="#59636e"><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.571;1" dur="1.40s"/>@DakaGoa  ·  Serbia</text>
+</svg>

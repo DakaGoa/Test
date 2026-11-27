@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-label="David Jeremic: Hi, I&#39;m @DakaGoa">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#071a1f"/><stop offset="1" stop-color="#0d1f33"/></linearGradient>
+    <linearGradient id="ink" x1="0" x2="1"><stop offset="0" stop-color="#4ade80"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs>
+  <clipPath id="frame"><rect width="1200" height="300" rx="18"/></clipPath>
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="300" fill="url(#bg)"/>
+    
+  </g>
+  <rect x=".5" y=".5" width="1199" height="299" rx="18" fill="none" stroke="#1c3d4a"/>
+  <circle cx="170" cy="150" r="74" fill="#0d1f33" stroke="#1c3d4a"/>
+  <circle cx="170" cy="150" r="86" fill="none" stroke="#4ade80" stroke-width="2" stroke-dasharray="6 10">
+    <animateTransform attributeName="transform" type="rotate" values="0 170 150;360 170 150" dur="24s" repeatCount="indefinite"/></circle>
+  <text x="170" y="170" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="56" font-weight="800" fill="url(#ink)">DJ</text>
+  <rect x="1010" y="36" width="150" height="30" rx="15" fill="none" stroke="#4ade80"/>
+  <text x="1085" y="56" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" letter-spacing="3" fill="#4ade80">DEVELOPER</text>
+  <g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.000;1" dur="0.60s"/>
+    <text x="300" y="70" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" letter-spacing="2" fill="#8fb8c4">NAME</text>
+    <text x="300" y="106" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="36" font-weight="700" fill="#e6fbff">David Jeremic</text></g>
+  <g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.333;1" dur="0.90s"/>
+    <text x="300" y="148" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" letter-spacing="2" fill="#8fb8c4">HANDLE</text>
+    <text x="300" y="178" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="24" font-weight="600" fill="#e6fbff">@DakaGoa</text></g>
+  <g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.429;1" dur="1.05s"/>
+    <text x="560" y="148" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" letter-spacing="2" fill="#8fb8c4">BASED IN</text>
+    <text x="560" y="178" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="24" font-weight="600" fill="#e6fbff">Serbia</text></g>
+  <g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.500;1" dur="1.20s"/>
+    <text x="800" y="148" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" letter-spacing="2" fill="#8fb8c4">SINCE</text>
+    <text x="800" y="178" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="24" font-weight="600" fill="#e6fbff">2014</text></g>
+  <clipPath id="type"><rect x="300" y="228.6" height="32.4" width="172.8"><animate attributeName="width" values="0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;10.8;21.6;32.4;43.2;54;64.8;75.6;86.4;97.2;108;118.8;129.6;140.4;151.2;162;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8;172.8" dur="5.18s" calcMode="discrete" repeatCount="indefinite"/></rect></clipPath>
+  <text x="300" y="252" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18" fill="#e6fbff" clip-path="url(#type)">Hi, I&#39;m @DakaGoa</text>
+  <rect x="474.8" y="235.8" width="3" height="21.6" fill="#4ade80"><animate attributeName="x" values="302;302;302;302;302;302;302;302;302;302;302;302;302;302;302;312.8;323.6;334.4;345.2;356;366.8;377.6;388.4;399.2;410;420.8;431.6;442.4;453.2;464;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8;474.8" dur="5.18s" calcMode="discrete" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="1;1;0;0" dur="1s" repeatCount="indefinite"/></rect>
+  <g fill="#e6fbff" opacity=".7"><rect x="990" y="214" width="1" height="46"/><rect x="993" y="214" width="3" height="46"/><rect x="999" y="214" width="2" height="46"/><rect x="1005" y="214" width="1" height="46"/><rect x="1008" y="214" width="4" height="46"/><rect x="1015" y="214" width="1" height="46"/><rect x="1020" y="214" width="4" height="46"/><rect x="1026" y="214" width="4" height="46"/><rect x="1033" y="214" width="2" height="46"/><rect x="1039" y="214" width="1" height="46"/><rect x="1042" y="214" width="4" height="46"/><rect x="1049" y="214" width="3" height="46"/><rect x="1056" y="214" width="4" height="46"/><rect x="1062" y="214" width="3" height="46"/><rect x="1068" y="214" width="3" height="46"/><rect x="1075" y="214" width="1" height="46"/><rect x="1078" y="214" width="4" height="46"/><rect x="1085" y="214" width="3" height="46"/><rect x="1092" y="214" width="2" height="46"/><rect x="1096" y="214" width="3" height="46"/><rect x="1102" y="214" width="2" height="46"/><rect x="1108" y="214" width="2" height="46"/><rect x="1112" y="214" width="4" height="46"/><rect x="1119" y="214" width="3" height="46"/><rect x="1126" y="214" width="2" height="46"/><rect x="1130" y="214" width="1" height="46"/><rect x="1134" y="214" width="2" height="46"/><rect x="1140" y="214" width="1" height="46"/><rect x="1143" y="214" width="1" height="46"/><rect x="1147" y="214" width="3" height="46"/></g>
+</svg>
