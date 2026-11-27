@@ -1,16 +1,12 @@
 <!--
-  README skin. The two images are drawn by skin/skin.mjs from your public GitHub data
-  and refreshed daily by .github/workflows/skin.yml.
-
-  Use it on your profile: copy README.md, skin/ and .github/ into the repo named exactly
-  like your username (github.com/<you>/<you>), then run Actions → skin → Run workflow.
-  Change the look: pick a template and theme in the builder (index.html), then paste its line into
-  skin/config.json. Templates: classic, terminal, orbit, minimal. Themes: github-dark, dracula, neon, ocean, light.
+  README skin. skin/skin.mjs draws every template and theme from public GitHub data into skin/out,
+  and .github/workflows/skin.yml refreshes them daily. Pick one in the README Skin Builder (index.html)
+  and press Activate: it points your profile README at that template and theme.
 -->
 <p align="center">
-  <img src="skin/header.svg" width="100%" alt="Profile header">
+  <img src="skin/out/classic-github-dark-header.svg" width="100%" alt="Profile header">
 </p>
 
 <p align="center">
-  <img src="skin/stats.svg" width="100%" alt="GitHub stats and top languages">
+  <img src="skin/out/classic-github-dark-stats.svg" width="100%" alt="GitHub stats and top languages">
 </p>

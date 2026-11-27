@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap">
 <style>
-/* Workbench: a controls rail on the left; the README preview and setup steps on the right; one column on phones. */
+/* Workbench: pickers and the Activate button in a rail on the left, the live preview on the right; one column on phones. */
 :root {
   --bg: #f3f5f8; --panel: #ffffff; --ink: #161a20; --muted: #5a6472; --line: #dce1e8;
   --stage: #e7ebf0; --accent: #b8245e; --accent-ink: #ffffff; --danger: #b3261e;
@@ -27,7 +27,7 @@
   --stage: #0a0d11; --accent: #ff6b9e; --accent-ink: #2a0614; --danger: #ff8a80; color-scheme: dark;
 }
 * { box-sizing: border-box }
-.wrap, .rail, .stage, .readme, .steps { grid-template-columns: minmax(0, 1fr) } /* keep the 1200px-wide images from widening their column */
+.wrap, .rail, .stage, .readme { grid-template-columns: minmax(0, 1fr) } /* keep the 1200px-wide images from widening their column */
 body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.55 var(--body) }
 .wrap {
   max-width: 1240px; margin: 0 auto; display: grid; gap: 28px; padding-block: 32px 64px;
@@ -38,15 +38,9 @@ body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.55 var(
 .bench { display: grid; grid-template-columns: minmax(0, 380px) minmax(0, 1fr); gap: 28px; align-items: start }
 @media (max-width: 880px) { .bench { grid-template-columns: minmax(0, 1fr) } }
 .rail { display: grid; gap: 24px; padding: 20px; background: var(--panel); border: 1px solid var(--line); border-radius: 14px }
-.label, legend { display: block; padding: 0; margin-bottom: 10px; font: 600 12px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted) }
+legend { display: block; padding: 0; margin-bottom: 10px; font: 600 12px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted) }
 fieldset { border: 0; margin: 0; padding: 0; min-width: 0 }
-.row { display: flex; gap: 8px }
-#user { flex: 1; min-width: 0; padding: 10px 12px; font: 15px var(--mono); color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 8px }
-#user:focus-visible, button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
-button { padding: 10px 16px; font: 600 14px var(--body); color: var(--accent-ink); background: var(--accent); border: 1px solid var(--accent); border-radius: 8px; cursor: pointer }
-button:disabled { opacity: .6; cursor: progress }
-.status { margin: 8px 0 0; min-height: 1.55em; font-size: 13px; color: var(--muted) }
-.status.error { color: var(--danger) }
+button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
 .templates, .themes { display: grid; grid-template-columns: 1fr 1fr; gap: 10px }
 .opt { position: relative; display: grid; gap: 4px; padding: 8px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; cursor: pointer }
 .opt input { position: absolute; opacity: 0; pointer-events: none }
@@ -59,83 +53,67 @@ button:disabled { opacity: .6; cursor: progress }
 .theme-opt { grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 10px }
 .swatch { display: flex; gap: 3px; padding: 5px; border: 1px solid var(--line); border-radius: 6px }
 .swatch i { width: 9px; height: 9px; border-radius: 50% }
-.stage { display: grid; gap: 32px; min-width: 0 }
-h2 { margin: 0 0 12px; font: 700 20px/1.2 var(--display) }
+.go { display: grid; gap: 10px; padding-top: 20px; border-top: 1px solid var(--line) }
+#activate { padding: 13px 16px; font: 600 16px var(--body); color: var(--accent-ink); background: var(--accent); border: 1px solid var(--accent); border-radius: 10px; cursor: pointer }
+#activate:disabled { opacity: .55; cursor: not-allowed }
+.note { margin: 0; font-size: 13px; color: var(--muted) }
+.status { margin: 0; min-height: 1.55em; font-size: 14px }
+.status.error { color: var(--danger) }
+.stage { display: grid; gap: 12px; min-width: 0 }
+h2 { margin: 0; font: 700 20px/1.2 var(--display) }
 .readme { display: grid; gap: 14px; padding: clamp(12px, 3vw, 28px); background: var(--stage); border: 1px solid var(--line); border-radius: 14px }
 .readme img { display: block; width: 100%; height: auto }
-.steps { display: grid; gap: 14px; max-width: 70ch; margin: 0; padding-left: 1.5em }
-.steps li::marker { font: 600 14px var(--mono); color: var(--accent) }
-code, pre { font-family: var(--mono); font-size: 13px }
-code { padding: 1px 5px; background: var(--stage); border-radius: 4px }
-.code { display: flex; align-items: center; gap: 10px; margin-top: 8px; padding: 8px 8px 8px 14px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px }
-.code pre { flex: 1; min-width: 0; margin: 0; overflow-x: auto }
 a { color: var(--accent) }
 </style>
 
 <main class="wrap">
   <header class="top">
     <h1>README Skin Builder</h1>
-    <p>Pick a template and a theme for your GitHub profile README. The preview draws the same animated images the skin Action puts on your profile, from public GitHub data.</p>
+    <p>Pick a template and a theme, then press Activate. Your GitHub profile switches to it, and its numbers refresh every day.</p>
   </header>
 
   <div class="bench">
     <div class="rail">
-      <form id="lookup">
-        <label class="label" for="user">GitHub username</label>
-        <div class="row">
-          <input id="user" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="40" placeholder="your-username">
-          <button id="load" type="submit">Load</button>
-        </div>
-        <p id="status" class="status" role="status"></p>
-      </form>
       <fieldset><legend>Template</legend><div id="templates" class="templates"></div></fieldset>
       <fieldset><legend>Theme</legend><div id="themes" class="themes"></div></fieldset>
+      <div class="go">
+        <button id="activate" type="button" disabled>Activate</button>
+        <p id="note" class="note"></p>
+        <p id="status" class="status" role="status"></p>
+      </div>
     </div>
 
-    <div class="stage">
-      <section aria-labelledby="preview-title">
-        <h2 id="preview-title">Preview</h2>
-        <div class="readme">
-          <img id="p-header" alt="Profile header preview" width="1200" height="300">
-          <img id="p-stats" alt="Stats card preview" width="1200" height="220">
-        </div>
-      </section>
-
-      <section aria-labelledby="use-title">
-        <h2 id="use-title">Put it on your profile</h2>
-        <ol class="steps">
-          <li>Create a public repository named exactly like your GitHub username. GitHub shows its README on your profile page.</li>
-          <li>Copy <code>README.md</code>, the <code>skin</code> folder and the <code>.github</code> folder from <a href="https://github.com/DakaGoa/Test" target="_blank" rel="noopener">DakaGoa/Test</a> into it.</li>
-          <li>Replace everything in <code>skin/config.json</code> with this line<span id="edit-wrap" hidden>, or <a id="edit-link" target="_blank" rel="noopener">edit the file on GitHub</a></span>:
-            <div class="code"><pre id="settings"></pre><button id="copy" type="button">Copy</button></div>
-          </li>
-          <li>The skin Action redraws your images whenever that file changes, and once a day after that. To run it right away, open Actions → skin → Run workflow.</li>
-        </ol>
-      </section>
-    </div>
+    <section class="stage" aria-labelledby="preview-title">
+      <h2 id="preview-title">Preview</h2>
+      <div class="readme">
+        <img id="p-header" alt="Profile header preview" width="1200" height="300">
+        <img id="p-stats" alt="Stats card preview" width="1200" height="220">
+      </div>
+    </section>
   </div>
 </main>
 
 <script type="module">
-import { THEMES, TEMPLATES, loadProfile, render } from "./skin/render.mjs";
+import { THEMES, TEMPLATES, render } from "./skin/render.mjs";
 
 const $ = (s) => document.querySelector(s);
-// Shown until real data loads; the status line says it is a sample.
+const IMAGES = "https://raw.githubusercontent.com/DakaGoa/Test/HEAD/skin/out"; // the skin Action redraws these daily
+// Shown until the saved profile loads; the note says it is a sample and Activate stays off.
 const SAMPLE = {
-  login: "your-username", name: "Your Name", bio: "Short line about what you build", location: "Your city",
+  login: "", name: "Your Name", bio: "Short line about what you build", location: "Your city",
   stats: [["Repos", 24], ["Stars", 310], ["Followers", 128], ["Joined", "2018"]],
   languages: [{ name: "TypeScript", pct: 0.4 }, { name: "Python", pct: 0.25 }, { name: "Go", pct: 0.15 }, { name: "Shell", pct: 0.1 }],
 };
 const state = { profile: SAMPLE, template: "classic", theme: "github-dark" };
 let urls = [];
+let mcp = null;
 
 const el = (tag, className = "", text = "") => Object.assign(document.createElement(tag), { className, textContent: text });
 const svgUrl = (svg) => { const u = URL.createObjectURL(new Blob([svg], { type: "image/svg+xml" })); urls.push(u); return u; };
-const LIVE_BUILDER = "https://dakagoa.github.io/Test/";
 const status = (text, isError = false, href) => {
   $("#status").textContent = text;
   $("#status").classList.toggle("error", isError);
-  if (href) $("#status").append(Object.assign(document.createElement("a"), { href, target: "_blank", rel: "noopener", textContent: href.replace("https://", "") }));
+  if (href) $("#status").append(" ", Object.assign(document.createElement("a"), { href, target: "_blank", rel: "noopener", textContent: href.replace("https://", "") }));
 };
 
 function draw() {
@@ -146,10 +124,6 @@ function draw() {
   $("#p-stats").src = svgUrl(files["stats.svg"]);
   for (const img of document.querySelectorAll("img[data-template]"))
     img.src = svgUrl(TEMPLATES[img.dataset.template].header(state.profile, THEMES[state.theme]));
-  $("#settings").textContent = `{ "template": "${state.template}", "theme": "${state.theme}" }`;
-  const login = encodeURIComponent(state.profile.login);
-  $("#edit-link").href = `https://github.com/${login}/${login}/edit/main/skin/config.json`;
-  $("#edit-wrap").hidden = state.profile === SAMPLE;
 }
 
 function addOptions(container, name, entries, build) {
@@ -162,16 +136,43 @@ function addOptions(container, name, entries, build) {
   }
 }
 
-// Start from this repo's current look and latest data when they are published next to the page.
+const readme = (t, th) => `<!-- README skin: ${t} / ${th}. Switch it in the README Skin Builder. -->
+<p align="center">
+  <img src="${IMAGES}/${t}-${th}-header.svg" width="100%" alt="Profile header">
+</p>
+
+<p align="center">
+  <img src="${IMAGES}/${t}-${th}-stats.svg" width="100%" alt="GitHub stats and top languages">
+</p>
+`;
+
+// Composio wraps each tool's answer; a failure can sit at the top or on the one result.
+function composioError(p) {
+  if (!p || typeof p !== "object") return "Composio sent back an answer this page doesn't understand.";
+  const r = p.data?.results?.[0];
+  const inner = r?.response ?? r ?? {};
+  if (p.successful === false || inner.successful === false || inner.error || p.error) return String(inner.error || p.error || "Composio reported that the change failed.");
+  return null;
+}
+
+function failure(e) {
+  switch (e?.code) {
+    case "server_not_connected": return "Composio isn't connected to claude.ai. Add it in Settings → Connectors, then press Activate again.";
+    case "needs_reauth": return "Your Composio connection has expired. Reconnect it in claude.ai Settings → Connectors, then press Activate again.";
+    case "not_in_manifest": case "approval_required": case "consent_required":
+      return "Activate needs your OK to use Composio. Press Activate again and choose Allow.";
+    case "server_unavailable": case "upstream_error": case "cancelled":
+      return "Composio didn't answer, so the switch may or may not have gone through. Check your profile before pressing Activate again.";
+    default:
+      return /connect/i.test(e?.message ?? "")
+        ? "GitHub isn't connected in Composio yet. Connect it there, then press Activate again."
+        : e?.message || "The switch didn't go through.";
+  }
+}
+
 const local = async (path) => { try { const r = await fetch(path); return r.ok ? await r.json() : null; } catch { return null; } };
-const [config, profile] = await Promise.all([local("skin/config.json"), local("skin/profile.json")]);
-if (TEMPLATES[config?.template]) state.template = config.template;
-if (THEMES[config?.theme]) state.theme = config.theme;
-if (profile?.login) {
-  state.profile = profile;
-  $("#user").value = profile.login;
-  status(`Showing @${profile.login} as of the last Action run.`);
-} else status("Showing a sample profile. Enter a username to preview real data.");
+const profile = await local("skin/profile.json");
+if (profile?.login) state.profile = profile;
 
 addOptions($("#templates"), "template", Object.entries(TEMPLATES), (value, tpl) => {
   const img = Object.assign(document.createElement("img"), { alt: "", width: 1200, height: 300 });
@@ -186,38 +187,37 @@ addOptions($("#themes"), "theme", Object.entries(THEMES), (value, th) => {
 });
 draw();
 
-$("#lookup").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const login = $("#user").value.trim().replace(/^@/, "");
-  if (!/^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i.test(login))
-    return status("GitHub usernames use letters, numbers and single hyphens, up to 39 characters.", true);
-  $("#load").disabled = true;
-  status(`Loading @${login}…`);
-  try {
-    state.profile = await loadProfile(login);
-    status(`Showing @${state.profile.login}.`);
-    draw();
-  } catch (err) {
-    if (!(err instanceof TypeError)) status(err.message, true);
-    // A TypeError means the page may not call GitHub at all (claude.ai pages, offline copies): fall back to the saved profile.
-    else if (profile && login.toLowerCase() === profile.login.toLowerCase()) {
-      state.profile = profile;
-      draw();
-      status(`Showing @${profile.login} as of the last Action run.`);
-    } else status(`This page can't call GitHub, so it only shows the profile saved by your last Action run. To look up any username, use `, false, LIVE_BUILDER);
-  } finally {
-    $("#load").disabled = false;
-  }
-});
+const login = state.profile.login;
+$("#note").textContent = login
+  ? `Activate replaces the README on github.com/${login}. Your current one stays in that repository's history.`
+  : "Showing a sample profile. Activate turns on once the skin Action has run for your account.";
 
-$("#copy").addEventListener("click", async () => {
+// Activate writes through the viewer's Composio connector, which only pages opened on claude.ai can reach.
+mcp = await (window.claude?.use?.("mcp") ?? null);
+if (!mcp && login) $("#note").textContent = "Open this builder on claude.ai to activate it with one click.";
+$("#activate").disabled = !mcp || !login;
+
+$("#activate").addEventListener("click", async () => {
+  const { template, theme } = state;
+  const label = `${TEMPLATES[template].label} · ${theme}`;
+  $("#activate").disabled = true;
+  status(`Switching your profile to ${label}…`);
   try {
-    await navigator.clipboard.writeText($("#settings").textContent);
-    $("#copy").textContent = "Copied";
-    setTimeout(() => ($("#copy").textContent = "Copy"), 1500);
-  } catch {
-    getSelection().selectAllChildren($("#settings"));
-    status("Copy didn't work here. The line is selected, so press Ctrl+C or ⌘C.");
+    const res = await mcp.callTool("Composio", "COMPOSIO_MULTI_EXECUTE_TOOL", {
+      tools: [{
+        tool_slug: "GITHUB_CREATE_OR_UPDATE_FILE_CONTENTS",
+        arguments: { owner: login, repo: login, path: "README.md", message: `Switch README skin to ${template} / ${theme}`, content: readme(template, theme) },
+      }],
+      sync_response_to_workbench: false,
+      thought: "Switch the GitHub profile README to the skin picked in the builder.",
+    });
+    const err = composioError(res.payload);
+    if (err) throw { message: err };
+    status(`${label} is live. GitHub can take a minute to show it:`, false, `https://github.com/${login}`);
+  } catch (e) {
+    status(failure(e), true);
+  } finally {
+    $("#activate").disabled = false;
   }
 });
 </script>
