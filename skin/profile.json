@@ -6,7 +6,7 @@
   "stats": [
     [
       "Repos",
-      8
+      12
     ],
     [
       "Stars",
@@ -24,15 +24,19 @@
   "languages": [
     {
       "name": "C++",
-      "pct": 0.3333333333333333
-    },
-    {
-      "name": "Rust",
-      "pct": 0.3333333333333333
+      "pct": 0.4
     },
     {
       "name": "JavaScript",
-      "pct": 0.3333333333333333
+      "pct": 0.3
+    },
+    {
+      "name": "Rust",
+      "pct": 0.2
+    },
+    {
+      "name": "Dart",
+      "pct": 0.1
     }
   ]
 }

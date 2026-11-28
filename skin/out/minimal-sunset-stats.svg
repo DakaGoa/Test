@@ -7,7 +7,7 @@
   <rect x=".5" y=".5" width="1199" height="219" rx="18" fill="url(#bg)" stroke="#4a2a36"/>
   <text x="40" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="18" font-weight="600" fill="#ff7a59">GitHub stats</text>
   <g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.000;1" dur="0.60s"/>
-    <text x="40" y="128" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="40" font-weight="700" fill="#ffeef0">8</text>
+    <text x="40" y="128" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="40" font-weight="700" fill="#ffeef0">12</text>
     <text x="40" y="158" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#c49aa6">Repos</text></g>
   <g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.200;1" dur="0.75s"/>
     <text x="175" y="128" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="40" font-weight="700" fill="#ffeef0">0</text>
@@ -22,14 +22,17 @@
   <text x="620" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="18" font-weight="600" fill="#ff7a59">Top languages <tspan fill="#c49aa6" font-weight="400" font-size="14">by repo</tspan></text>
   <g clip-path="url(#track)">
     <rect x="620" y="80" width="540" height="12" fill="#4a2a36"/>
-    <rect x="620" y="80" width="180" height="12" fill="#ff7a59"><animate attributeName="width" values="0;0;180" keyTimes="0;0.000;1" dur="1.00s"/></rect>
-    <rect x="800" y="80" width="180" height="12" fill="#ffc15e"><animate attributeName="width" values="0;0;180" keyTimes="0;0.167;1" dur="1.20s"/></rect>
-    <rect x="980" y="80" width="180" height="12" fill="#ff4f8b"><animate attributeName="width" values="0;0;180" keyTimes="0;0.286;1" dur="1.40s"/></rect>
+    <rect x="620" y="80" width="216" height="12" fill="#ff7a59"><animate attributeName="width" values="0;0;216" keyTimes="0;0.000;1" dur="1.00s"/></rect>
+    <rect x="836" y="80" width="162" height="12" fill="#ffc15e"><animate attributeName="width" values="0;0;162" keyTimes="0;0.167;1" dur="1.20s"/></rect>
+    <rect x="998" y="80" width="108" height="12" fill="#ff4f8b"><animate attributeName="width" values="0;0;108" keyTimes="0;0.286;1" dur="1.40s"/></rect>
+    <rect x="1106" y="80" width="54" height="12" fill="#c084fc"><animate attributeName="width" values="0;0;54" keyTimes="0;0.375;1" dur="1.60s"/></rect>
   </g>
   <g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.333;1" dur="0.90s"/><circle cx="626" cy="130" r="6" fill="#ff7a59"/>
-    <text x="640" y="135" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#ffeef0">C++ <tspan fill="#c49aa6">33%</tspan></text></g>
+    <text x="640" y="135" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#ffeef0">C++ <tspan fill="#c49aa6">40%</tspan></text></g>
   <g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.400;1" dur="1.00s"/><circle cx="806" cy="130" r="6" fill="#ffc15e"/>
-    <text x="820" y="135" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#ffeef0">Rust <tspan fill="#c49aa6">33%</tspan></text></g>
+    <text x="820" y="135" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#ffeef0">JavaScript <tspan fill="#c49aa6">30%</tspan></text></g>
   <g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.455;1" dur="1.10s"/><circle cx="986" cy="130" r="6" fill="#ff4f8b"/>
-    <text x="1000" y="135" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#ffeef0">JavaScript <tspan fill="#c49aa6">33%</tspan></text></g>
+    <text x="1000" y="135" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#ffeef0">Rust <tspan fill="#c49aa6">20%</tspan></text></g>
+  <g><animate attributeName="opacity" values="0;0;1" keyTimes="0;0.500;1" dur="1.20s"/><circle cx="626" cy="164" r="6" fill="#c084fc"/>
+    <text x="640" y="169" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="15" fill="#ffeef0">Dart <tspan fill="#c49aa6">10%</tspan></text></g>
 </svg>

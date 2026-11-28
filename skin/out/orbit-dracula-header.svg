@@ -99,13 +99,16 @@
       <animate attributeName="opacity" values=".15;.8;.15" dur="2.9s" begin="-0.5s" repeatCount="indefinite"/></circle>
     <circle cx="1010" cy="150" r="44" fill="none" stroke="#44475a" stroke-dasharray="2 6"/>
     <g transform="rotate(351 1010 150)"><animateTransform attributeName="transform" type="rotate" from="351 1010 150" to="711 1010 150" dur="9s" repeatCount="indefinite"/>
-      <circle cx="1054" cy="150" r="7.3" fill="#bd93f9"/></g>
+      <circle cx="1054" cy="150" r="8.0" fill="#bd93f9"/></g>
     <circle cx="1010" cy="150" r="66" fill="none" stroke="#44475a" stroke-dasharray="2 6"/>
     <g transform="rotate(294 1010 150)"><animateTransform attributeName="transform" type="rotate" from="294 1010 150" to="654 1010 150" dur="14s" repeatCount="indefinite"/>
-      <circle cx="1076" cy="150" r="7.3" fill="#ff79c6"/></g>
+      <circle cx="1076" cy="150" r="7.0" fill="#ff79c6"/></g>
     <circle cx="1010" cy="150" r="88" fill="none" stroke="#44475a" stroke-dasharray="2 6"/>
     <g transform="rotate(13 1010 150)"><animateTransform attributeName="transform" type="rotate" from="13 1010 150" to="373 1010 150" dur="19s" repeatCount="indefinite"/>
-      <circle cx="1098" cy="150" r="7.3" fill="#50fa7b"/></g>
+      <circle cx="1098" cy="150" r="6.0" fill="#50fa7b"/></g>
+    <circle cx="1010" cy="150" r="110" fill="none" stroke="#44475a" stroke-dasharray="2 6"/>
+    <g transform="rotate(8 1010 150)"><animateTransform attributeName="transform" type="rotate" from="8 1010 150" to="368 1010 150" dur="24s" repeatCount="indefinite"/>
+      <circle cx="1120" cy="150" r="5.0" fill="#f1fa8c"/></g>
     <circle cx="1010" cy="150" r="34" fill="url(#glow)"><animate attributeName="r" values="30;40;30" dur="4s" repeatCount="indefinite"/></circle>
     <circle cx="1010" cy="150" r="13" fill="#bd93f9"/>
   </g>
